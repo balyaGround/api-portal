@@ -12,7 +12,7 @@ const app = express(); // Make express app
 
 // CORS
 app.use(cors());
-//Assalamaulaikum
+
 // Prevent XSS attact
 app.use(xss());
 
@@ -38,9 +38,12 @@ if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
   app.use(morgan("dev"));
 } else {
   // create a write stream (in append mode)
-  let accessLogStream = fs.createWriteStream(path.join(__dirname, "access.log"), {
-    flags: "a",
-  });
+  let accessLogStream = fs.createWriteStream(
+    path.join(__dirname, "access.log"),
+    {
+      flags: "a",
+    }
+  );
 
   // setup the logger
   app.use(morgan("combined", { stream: accessLogStream }));
@@ -49,7 +52,8 @@ if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
 /* Import routes */
 const auth = require("./routes/auth");
 
-const parameter = require("./routes/admin/parameter");
+const adminparameter = require("./routes/admin/parameter");
+const supervisorparameter = require("./routes/supervisor/parameter");
 
 /* Import response */
 const response = require("./middlewares/response");
@@ -78,11 +82,13 @@ app.get("/", async (req, res, next) => {
 /* The routes */
 const version = "/api/v1";
 const adminV1 = "/api/v1/admin";
+const supervisorV1 = "/api/v1/supervisor";
 
 app.use(`${version}/auth`, auth);
 
 // ======= admin routes =======
-app.use(`${adminV1}/parameter`, parameter);
+app.use(`${adminV1}/parameter`, adminparameter);
+app.use(`${supervisorV1}/parameter`, supervisorparameter);
 
 /* If routes not
 found */

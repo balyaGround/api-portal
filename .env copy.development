@@ -1,0 +1,3 @@
+MONGO_URI=mongodb+srv://admin:EuTgCucBrfaGmL1c@privyid-pretest.arz5n.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+JWT_SECRET=
+NODE_ENV=development
