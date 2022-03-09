@@ -9,7 +9,8 @@ const helmet = require("helmet");
 const cors = require("cors");
 const morgan = require("morgan");
 const app = express(); // Make express app
-
+const fs = require("fs");
+const path = require("path");
 // CORS
 app.use(cors());
 
@@ -38,12 +39,9 @@ if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
   app.use(morgan("dev"));
 } else {
   // create a write stream (in append mode)
-  let accessLogStream = fs.createWriteStream(
-    path.join(__dirname, "access.log"),
-    {
-      flags: "a",
-    }
-  );
+  let accessLogStream = fs.createWriteStream(path.join(__dirname, "access.log"), {
+    flags: "a",
+  });
 
   // setup the logger
   app.use(morgan("combined", { stream: accessLogStream }));
