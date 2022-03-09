@@ -40,6 +40,19 @@ class AuthController {
       next(error);
     }
   };
+
+  getUsrCtrl = async (req, res, next) => {
+    try {
+      const data = await user.findOne({ username: req.user.username });
+      next({
+        value: data,
+        message: "OK",
+        statusCode: 200,
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
 }
 
 module.exports = new AuthController();
