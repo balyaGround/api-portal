@@ -7,11 +7,11 @@ const { signin } = require("../middlewares/auth");
 const { signinVldt } = require("../middlewares/validator/authValidator");
 
 //import controler
-const { GetTokenCtrl } = require("../controller/authController");
+const { GetTokenCtrl, signUpCtrl } = require("../controller/authController");
 
 router.post("/login", signinVldt, signin, GetTokenCtrl);
 
 //this is for development
-// router.post("/signup", signUpCtrl);
+router.post("/signup", signUpCtrl);
 
 module.exports = router;
