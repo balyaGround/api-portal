@@ -29,10 +29,8 @@ class AuthController {
         expiresIn: "48h",
       });
 
-      const data = await user.find({ _id: token.user }).select("_id username");
-
       next({
-        value: { id: data._id, username: data.username, token },
+        value: { id: req.user.id, username: req.user.username, role: req.user.role, token },
         message: "OK",
         statusCode: 200,
       });

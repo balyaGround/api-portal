@@ -40,8 +40,6 @@ passport.use(
       try {
         const data = await user.findOne({ username: username });
 
-        console.log(data);
-
         if (!data) {
           return done(null, false, { message: "User is not found!" });
         }
