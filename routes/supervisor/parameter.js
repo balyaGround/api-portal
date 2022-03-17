@@ -13,5 +13,5 @@ route.get("/", getParameter);
 route.post("/", supervisor, updateParameterVldt, updateParameterCtrl, logCtrl);
 route.post("/title", supervisor, updateTitleVldt, updateParameterCtrl, logCtrl);
 route.post("/attributes", supervisor, updateScheduleAttrVldt, updateParameterCtrl, logCtrl);
-
+route.post("/operationalTIme", supervisor, updateScheduleAttrVldt, updateParameterCtrl, logCtrl);
 module.exports = route;
