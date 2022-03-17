@@ -28,16 +28,16 @@ const parameterSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    operationalStart: {
-      type: string,
-      required: true,
-      uniqe: true,
-    },
-    operationalEnd: {
-      type: string,
-      required: true,
-      uniqe: true,
-    },
+    // operationalStart: {
+    //   type: number,
+    //   required: true,
+    //   uniqe: true,
+    // },
+    // operationalEnd: {
+    //   type: number,
+    //   required: true,
+    //   uniqe: true,
+    // },
     attributes: {
       type: Array,
       required: false,
