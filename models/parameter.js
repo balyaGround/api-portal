@@ -29,12 +29,12 @@ const parameterSchema = new mongoose.Schema(
       unique: true,
     },
     operationalStart: {
-      type: double,
+      type: string,
       required: true,
       uniqe: true,
     },
     operationalEnd: {
-      type: double,
+      type: string,
       required: true,
       uniqe: true,
     },
