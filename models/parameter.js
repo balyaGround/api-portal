@@ -42,6 +42,7 @@ const parameterSchema = new mongoose.Schema(
   }
 );
 //halooooo
+//benerin network erorr
 
 parameterSchema.plugin(mongooseDelete, { overrideMethods: "all" }); //enable soft delete
 
