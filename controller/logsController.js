@@ -29,7 +29,7 @@ class logController {
           let json = x.body;
           temp = JSON.parse(json);
           console.log(x.body);
-          result.push(x);
+          result.push([x, temp]);
         }
       });
 

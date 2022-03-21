@@ -34,4 +34,5 @@ class authValidator {
     }
   };
 }
+
 module.exports = new authValidator();

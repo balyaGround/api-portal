@@ -17,6 +17,16 @@ class AuthController {
     }
   };
 
+  getUserController = async (req, res, next) => {
+    try {
+      const data = await user.find({});
+
+      next({ value: data, message: "OK", statusCode: 201 });
+    } catch (error) {
+      next(error);
+    }
+  };
+
   GetTokenCtrl = async (req, res, next) => {
     try {
       const identity = {
