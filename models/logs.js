@@ -7,6 +7,10 @@ const logSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    body: {
+      type: String,
+      required: true,
+    },
     role: {
       type: String,
       required: true,

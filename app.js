@@ -49,6 +49,7 @@ if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
 
 /* Import routes */
 const auth = require("./routes/auth");
+const log = require("./routes/log");
 
 const adminparameter = require("./routes/admin/parameter");
 const supervisorparameter = require("./routes/supervisor/parameter");
@@ -83,6 +84,7 @@ const adminV1 = "/api/v1/admin";
 const supervisorV1 = "/api/v1/supervisor";
 
 app.use(`${version}/auth`, auth);
+app.use(`${version}/log`, log);
 
 // ======= admin routes =======
 app.use(`${adminV1}/parameter`, adminparameter);
@@ -106,7 +108,7 @@ app.all("*", (req, res, next) => {
 app.use(response);
 
 /* Running server */
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 if (process.env.NODE_ENV !== "test") {
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 }
