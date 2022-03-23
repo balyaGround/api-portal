@@ -23,7 +23,12 @@ const parameterSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    percentage: {
+    percentageLiveness: {
+      type: Number,
+      required: true,
+      unique: true,
+    },
+    percentageSimilarity: {
       type: Number,
       required: true,
       unique: true,
