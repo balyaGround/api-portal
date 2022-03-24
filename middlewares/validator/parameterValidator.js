@@ -5,13 +5,13 @@ class parameterValidator {
     try {
       const errorMessages = [];
 
-      const validate = ["background", "button", "box", "percentage"];
+      // const validate = ["background", "button", "box", "percentage"];
 
-      validate.map((x) => {
-        if (!req.body[x] || req.body[x] === "") {
-          errorMessages.push(`${x} cannot be empty`);
-        }
-      });
+      // validate.map((x) => {
+      //   if (!req.body[x] || req.body[x] === "") {
+      //     errorMessages.push(`${x} cannot be empty`);
+      //   }
+      // });
 
       if (errorMessages.length > 0) {
         return next({
