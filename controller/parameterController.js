@@ -8,7 +8,7 @@ class Parameter {
 
       let data = await parameter.findOne({ _id: id }).select("-_v");
 
-      req.body.data = data;
+      req.body.data = newData;
 
       next();
     } catch (error) {
