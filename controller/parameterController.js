@@ -4,11 +4,11 @@ class Parameter {
   updateParameterCtrl = async (req, res, next) => {
     try {
       const id = "62173d59703d5a648911c254";
-      const newData = await parameter.findOneAndUpdate({ _id: id }, req.body);
+      // const newData = await parameter.findOneAndUpdate({ _id: id }, req.body);
 
       let data = await parameter.findOne({ _id: id }).select("-_v");
 
-      req.body.data = newData;
+      req.body.data = data;
 
       next();
     } catch (error) {
