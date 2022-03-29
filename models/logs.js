@@ -24,6 +24,7 @@ const logSchema = new mongoose.Schema(
   }
 );
 //halooooo
+
 logSchema.plugin(mongooseDelete, { overrideMethods: "all" }); //enable soft delete
 
 module.exports = mongoose.model("log", logSchema);

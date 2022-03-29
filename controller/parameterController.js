@@ -11,6 +11,7 @@ class Parameter {
       req.body.data = data;
 
       next();
+      console.log(data);
     } catch (error) {
       next(error);
     }

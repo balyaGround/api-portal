@@ -43,6 +43,11 @@ const parameterSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    operationalButton: {
+      type: Boolean,
+      required: true,
+      unique: true,
+    },
     attributes: {
       type: Array,
       required: false,
