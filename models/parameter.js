@@ -33,6 +33,16 @@ const parameterSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    textColor: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    warningTextColor: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     operationalStart: {
       type: Number,
       required: true,
