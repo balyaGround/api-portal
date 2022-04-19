@@ -50,6 +50,7 @@ if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
 /* Import routes */
 const auth = require("./routes/auth");
 const log = require("./routes/log");
+const video = require("./routes/video/video");
 
 const adminparameter = require("./routes/admin/parameter");
 const supervisorparameter = require("./routes/supervisor/parameter");
@@ -85,6 +86,7 @@ const supervisorV1 = "/api/v1/supervisor";
 
 app.use(`${version}/auth`, auth);
 app.use(`${version}/log`, log);
+app.use(`${version}/video`, video);
 
 // ======= admin routes =======
 app.use(`${adminV1}/parameter`, adminparameter);
