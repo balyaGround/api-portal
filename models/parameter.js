@@ -65,7 +65,7 @@ const parameterSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: {
+    date: {
       createdAt: "createdAt",
       updatedAt: "updatedAt",
     },

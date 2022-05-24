@@ -11,6 +11,7 @@ const morgan = require("morgan");
 const app = express(); // Make express app
 const fs = require("fs");
 const path = require("path");
+const fileUpload = require("express-fileupload");
 // CORS
 app.use(cors());
 
@@ -66,7 +67,7 @@ app.use(
     extended: true,
   })
 );
-
+app.use(fileUpload());
 /* Make public folder as static */
 app.use(express.static("public"));
 

@@ -3,9 +3,9 @@ const { video } = require("../models");
 class Video {
   uploadVideoCtrl = async (req, res, next) => {
     try {
-      if (req.file) {
-        req.body.file = req.file.path;
-      }
+      // if (req.file) {
+      //   req.body.file = req.file.path;
+      // }
       const newData = await video.create({ file: req.body.file });
       console.log(req.body.file);
       let data = await video.findOne({ _id: newData._id }).select("-_v");
@@ -45,4 +45,6 @@ class Video {
 }
 //bisa dunkssss
 //ganti akun git
+//tes
+
 module.exports = new Video();
