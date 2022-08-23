@@ -40,9 +40,12 @@ if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
   app.use(morgan("dev"));
 } else {
   // create a write stream (in append mode)
-  let accessLogStream = fs.createWriteStream(path.join(__dirname, "access.log"), {
-    flags: "a",
-  });
+  let accessLogStream = fs.createWriteStream(
+    path.join(__dirname, "access.log"),
+    {
+      flags: "a",
+    }
+  );
 
   // setup the logger
   app.use(morgan("combined", { stream: accessLogStream }));
@@ -52,6 +55,7 @@ if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
 const auth = require("./routes/auth");
 const log = require("./routes/log");
 const video = require("./routes/video/video");
+const notification = require("./routes/notification");
 
 const adminparameter = require("./routes/admin/parameter");
 const supervisorparameter = require("./routes/supervisor/parameter");
@@ -88,6 +92,7 @@ const supervisorV1 = "/api/v1/supervisor";
 app.use(`${version}/auth`, auth);
 app.use(`${version}/log`, log);
 app.use(`${version}/video`, video);
+app.use(`${version}/notification`, notification);
 
 // ======= admin routes =======
 app.use(`${adminV1}/parameter`, adminparameter);
