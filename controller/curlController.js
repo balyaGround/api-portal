@@ -1,37 +1,38 @@
-const { curly } = require("node-libcurl");
-const path = require("path");
-const tls = require("tls");
-const fs = require("fs");
+var request = require("request");
 
-const certFilePath = path.join("./cert/VOIP.pem");
-const tlsData = tls.rootCertificates.join("\n");
-fs.writeFileSync(certFilePath, tlsData);
+const fs = require("fs");
+const path = require("path");
+
+certFile = path.resolve(__dirname, "../cert/VOIP.pem");
 
 class curlController {
   notificationCtrl = async (req, res, next) => {
     try {
-      console.log("ini file cert --> ", certFilePath);
+      var headers = {
+        "apns-topic": "id.ist.flutterWebrtcDemo.voip",
+        "apns-push-type": "voip",
+      };
 
-      const payload = {
-        postFields: JSON.stringify({
+      var options = {
+        url: "https://api.development.push.apple.com/3/device/b7da7ae53440e3dc7ce7f1cfeef18e345b612487469bbc5d4ab469c16b64e51b",
+        method: "POST",
+        headers: headers,
+        json: {
           aps: { alert: "UWAW KEREN KALI" },
           id: "44d915e1-5ff4-4bed-bf13-c423048ec97a",
           nameCaller: "UWAW",
           handle: "0123456789",
           isVideo: true,
-        }),
-        httpHeader: [
-          "apns-topic: id.ist.flutterWebrtcDemo.voip",
-          "apns-push-type: voip",
-        ],
-        caInfo: certFilePath + "ist2022",
-        verbose: true,
+        },
+        cert: fs.readFileSync(certFile),
+        passphrase: "ist2022",
       };
 
-      console.log("Payload --> ", payload);
-      const { data } = await curly.post(
-        "https://api.development.push.apple.com/3/device/b7da7ae53440e3dc7ce7f1cfeef18e345b612487469bbc5d4ab469c16b64e51b",
-        payload
+      const notification = await request(
+        options,
+        function (error, response, body) {
+          console.log(response);
+        }
       );
 
       next({

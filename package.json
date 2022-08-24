@@ -33,10 +33,10 @@
     "multer-storage-cloudinary": "^4.0.0",
     "mysql2": "^2.3.3",
     "node-apn": "^3.0.0",
-    "node-libcurl": "^2.3.4",
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "request": "^2.88.2",
     "sequelize": "^7.0.0-alpha.4",
     "validator": "^13.7.0",
     "xss-clean": "^0.1.1"
