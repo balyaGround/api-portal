@@ -6,11 +6,10 @@ class curlController {
   notificationCtrl = async (req, res, next) => {
     try {
       const host = "https://api.sandbox.push.apple.com";
-      const path =
-        "/3/device/b7da7ae53440e3dc7ce7f1cfeef18e345b612487469bbc5d4ab469c16b64e51b";
+      const path = "/3/device/b7da7ae53440e3dc7ce7f1cfeef18e345b612487469bbc5d4ab469c16b64e51b";
 
       const client = http2.connect(host, {
-        key: fs.readFileSync(__dirname + "/cert/VOIP.pem"),
+        key: fs.readFileSync(__dirname + "/cert/VOIP.key.pem"),
         cert: fs.readFileSync(__dirname + "/cert/VOIP.crt.pem"),
       });
 
