@@ -5,3 +5,4 @@ const { notificationCtrl } = require("../controller/curlController");
 
 route.get("/", notificationCtrl);
 module.exports = route;
+//aloooo
