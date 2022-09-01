@@ -5,9 +5,11 @@ const path = require("path");
 class curlController {
   notificationCtrl = async (req, res, next) => {
     try {
+      const tokenIos = req.params.token;
       const host = "https://api.sandbox.push.apple.com";
-      const path = "/3/device/b7da7ae53440e3dc7ce7f1cfeef18e345b612487469bbc5d4ab469c16b64e51b";
-
+      const path = `/3/device/${tokenIos}`;
+      //
+      // b7da7ae53440e3dc7ce7f1cfeef18e345b612487469bbc5d4ab469c16b64e51b
       const client = http2.connect(host, {
         key: fs.readFileSync(__dirname + "/cert/VOIP.key.pem"),
         cert: fs.readFileSync(__dirname + "/cert/VOIP.crt.pem"),
@@ -22,7 +24,7 @@ class curlController {
         // },
         aps: { alert: "UWAW KEREN KALI" },
         id: "44d915e1-5ff4-4bed-bf13-c423048ec97a",
-        nameCaller: "UWAW",
+        nameCaller: "Bank IST",
         handle: "0123456789",
         isVideo: true,
       };
