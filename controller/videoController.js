@@ -42,6 +42,20 @@ class Video {
       next(error);
     }
   };
+
+  delleteAllVideo = async (req, res, next) => {
+    try {
+      const data = await video.deleteMany();
+
+      next({
+        value: data,
+        message: "OK",
+        statusCode: 201,
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
 }
 //bisa dunkssss
 //ganti akun git
