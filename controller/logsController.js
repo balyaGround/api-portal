@@ -72,7 +72,7 @@ class logController {
   deleteLog = async (req, res, next) => {
     try {
       const result = [];
-      let data = await log.findByIdAndDelete();
+      let data = await log.findByIdAndDelete(req.params.id);
 
       next({
         value: result,
