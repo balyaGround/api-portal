@@ -10,4 +10,5 @@ const { validatorVideoCtrl } = require("../../middlewares/validator/videoValidat
 
 route.get("/", getVideo);
 route.post("/", validatorVideoCtrl, uploadVideoCtrl);
+route.delete("/");
 module.exports = route;

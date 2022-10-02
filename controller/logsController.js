@@ -53,5 +53,20 @@ class logController {
       next(error);
     }
   };
+
+  dellteAllLog = async (req, res, next) => {
+    try {
+      const result = [];
+      let data = await log.deleteMany();
+
+      next({
+        value: result,
+        message: "OK",
+        statusCode: 201,
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
 }
 module.exports = new logController();
